@@ -1,0 +1,4 @@
+Welcome to Celadon!
+You are an elf-dwarf hybrid called Celadon, who has been sent as a sacrifice to the continent's monster overlord - Plum.
+You are currently in your home cave with your father.
+To get started, you can try using the "help" command!
