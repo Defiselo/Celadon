@@ -20,6 +20,17 @@ public class Room {
     public Room() {
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int[] getDirections() {
+        return directions;
+    }
 
     @Override
     public String toString() {
