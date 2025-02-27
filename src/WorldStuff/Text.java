@@ -15,7 +15,7 @@ public class Text {
         }catch (IOException e){
             return "Oops! Something went wrong";
         }
-        return null;
+        return "";
     }
 
 
