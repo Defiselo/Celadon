@@ -3,6 +3,10 @@ package Command;
 public class Investigate implements Command {
     @Override
     public String execute() {
+
+
+
+
         return "";
     }
 

@@ -16,8 +16,9 @@ public class Mappington {
             String line;
             while((line = br.readLine()) != null){
                 String[] lines = line.split("/");
-                Room room = new Room(Integer.parseInt(lines[0]),lines[1],Arrays.copyOfRange(lines, 2, 5)
-                );
+                Room room = new Room(Integer.parseInt(lines[0]),lines[1],Arrays.copyOfRange(lines, 2, 5));
+                map.put(Integer.valueOf(lines[0]), room);
+
             }
             return true;
         } catch (IOException e) {

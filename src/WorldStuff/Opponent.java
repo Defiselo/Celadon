@@ -4,13 +4,22 @@ public class Opponent {
     private int strength;
     private int health;
     private int charismaThreshold;
+    private OpponentType type;
 
-    public Opponent(int strength, int health, int charismaThreshold) {
+    public Opponent(int strength, int health, int charismaThreshold, OpponentType type) {
         this.strength = strength;
         this.health = health;
         this.charismaThreshold = charismaThreshold;
+        this.type = type;
     }
 
+    public OpponentType getType() {
+        return type;
+    }
+
+    public void setType(OpponentType type) {
+        this.type = type;
+    }
 
     public int getStrength() {
         return strength;

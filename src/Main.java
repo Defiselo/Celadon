@@ -1,11 +1,12 @@
 import Command.Inventory;
 import WorldStuff.Item;
 import WorldStuff.ItemType;
+import WorldStuff.Mappington;
 
 public class Main {
     public static void main(String[] args) {
-        Inventory inv = new Inventory();
+        Mappington mappa = new Mappington();
 
-        inv.addItem(new Item("Knife", ItemType.WEAPON));
+        System.out.println(mappa.getCurrentRoom());
     }
 }
