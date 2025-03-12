@@ -8,6 +8,7 @@ public class Room {
     private String name;
     private int[] directions;
 
+
     public Room(int ID, String name, String[] directions) {
         this.ID = ID;
         this.name = name;

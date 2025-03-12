@@ -14,7 +14,7 @@ public class Console {
        commands.put("help", new Help());
        commands.put("inventory", new Inventory());
        commands.put("quit", new Quit());
-       commands.put("investigate", new Investigate());
+       commands.put("investigate", new Investigate(new Inventory())); //TODO fix??
    }
 
    public void useCommand(){
