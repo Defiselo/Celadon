@@ -16,15 +16,12 @@ public class Inventory implements Command {
         }
 
         while (true) {
-            System.out.println("What would you like to do in your inventory? (list/use/drop/exit)");
+            System.out.println("What would you like to do in your inventory? (list/drop/exit)");
             String action = sc.next().toLowerCase();
 
             switch (action) {
                 case "list":
                     listItems();
-                    break;
-                case "use":
-                    useItem();
                     break;
                 case "drop":
                     dropItem();
@@ -61,17 +58,6 @@ public class Inventory implements Command {
         }
     }
 
-    private void useItem() {
-        System.out.println("Enter the item name to use:");
-        String itemName = sc.next();
-        for (Item item : items) {
-            if (item.getName().equalsIgnoreCase(itemName)) {
-                System.out.println("You used " + item.getName() + "!");
-                return;
-            }
-        }
-        System.out.println("Item not found!");
-    }
 
     private void dropItem() {
         System.out.println("Enter the item name to drop:");
@@ -85,4 +71,29 @@ public class Inventory implements Command {
         }
         System.out.println("Item not found!");
     }
+
+    public int getTotalCharisma(){
+        int total = 0;
+        for (Item item : items){
+            total += item.getCharisma();
+        }
+        return total;
+    }
+    public int getTotalStrength(){
+        int total = 0;
+        for (Item item : items){
+            total += item.getStrength();
+        }
+        return total;
+    }
+
+    public int getTotalHealth(){
+        int total = 0;
+        for (Item item : items){
+            total += item.getStrength();
+        }
+        return total;
+    }
+
+
 }

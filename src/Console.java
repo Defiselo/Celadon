@@ -1,4 +1,5 @@
 import Command.*;
+import WorldStuff.Mappington;
 import WorldStuff.Text;
 
 import java.util.HashMap;
@@ -8,6 +9,7 @@ public class Console {
     private boolean exit = false;
     private HashMap<String, Command> commands = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
+    private Mappington map = new Mappington();
 
    public void initialize(){
        commands.put("go", new Go());
@@ -30,6 +32,7 @@ public class Console {
    }
     public void start(){
         initialize();
+        map.loadMap();
         String text = Text.loadIntro();
         System.out.println(text);
         try{

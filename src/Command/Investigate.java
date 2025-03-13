@@ -24,18 +24,18 @@ public class Investigate implements Command {
         "A mysterious figure stands before you, introducing himself as Plum and you start to feel some nostalgia. It's now or never."
     };
     private Item[] items = {
-        new Item("Old Sword", ItemType.WEAPON),
-        new Item("Brother's Note", ItemType.PUZZLE),
-        new Item("Rusty Armor", ItemType.ARMOR),
+        new Item("Old Sword", ItemType.WEAPON, 3),
+        new Item("Brother's Note", ItemType.PUZZLE, 0),
+        new Item("Rusty Armor", ItemType.ARMOR, 5),
         null,
-        new Item("Sharp Sword", ItemType.WEAPON),
-        new Item("Dank ahh meme lul", ItemType.JOKE),
-        new Item("Unidentified", ItemType.PUZZLE),
+        new Item("Sharp Sword", ItemType.WEAPON, 7),
+        new Item("Dank ahh meme lul", ItemType.JOKE, 10),
+        new Item("Unidentified", ItemType.PUZZLE, 0),
+        null,
+        new Item("",ItemType.WEAPON,24),
         null,
         null,
-        null,
-        null,
-        new Item("Pristine Armor", ItemType.ARMOR),
+        new Item("Pristine Armor", ItemType.ARMOR, 35),
         null
     };
 
@@ -49,9 +49,13 @@ public class Investigate implements Command {
         String description = descriptions[map.getCurrentRoom().getID()];
         System.out.println(description);
 
+
         Item foundItem = items[map.getCurrentRoom().getID()];
-        inventory.addItem(foundItem);
-        return foundItem.getName() + "has been added to your inventory.";
+        if (foundItem!=null) {
+            inventory.addItem(foundItem);
+            return foundItem.getName() + "has been added to your inventory.";
+        }
+        return "";
     }
 
     @Override

@@ -13,7 +13,10 @@ public class FightOrFlight {
             case JESTER -> playerWon = celadon.getCharisma() >= opponent.getCharismaThreshold();
         }
         if(playerWon) {
-            celadon.levelUp();
+            opponent.setDefeated(true);
+            for (int i = 0; i < opponent.getLevel(); i++) {
+                celadon.levelUp();
+            }
         }
     }
 

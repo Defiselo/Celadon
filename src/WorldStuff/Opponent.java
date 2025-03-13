@@ -1,16 +1,40 @@
 package WorldStuff;
 
+import java.util.Random;
+
 public class Opponent {
-    private int strength;
-    private int health;
-    private int charismaThreshold;
+    protected int strength;
+    protected int health;
+    protected int charismaThreshold;
+    protected int level;
+    protected boolean isDefeated = false;
+    private Random rd = new Random();
     private OpponentType type;
 
-    public Opponent(int strength, int health, int charismaThreshold, OpponentType type) {
-        this.strength = strength;
-        this.health = health;
-        this.charismaThreshold = charismaThreshold;
+    public Opponent(int level, OpponentType type) {
+        this.strength = level*3;
+        this.health = level*rd.nextInt(3)+8;
+        this.charismaThreshold = level*2;
         this.type = type;
+    }
+
+    public Opponent() {
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public boolean isDefeated() {
+        return isDefeated;
+    }
+
+    public void setDefeated(boolean defeated) {
+        isDefeated = defeated;
     }
 
     public OpponentType getType() {

@@ -7,6 +7,7 @@ public class Room {
     private int ID;
     private String name;
     private int[] directions;
+    private Opponent[] opps;
 
 
     public Room(int ID, String name, String[] directions) {

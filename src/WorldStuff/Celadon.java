@@ -1,23 +1,27 @@
 package WorldStuff;
 
+import Command.Inventory;
+
 public class Celadon {
     private int strength;
     private int charisma;
     private int health;
     private int level;
+    private Inventory inventory;
 
-    public Celadon() {
+    public Celadon(Inventory inventory) {
         this.strength = 5;
         this.charisma = 5;
         this.health = 50;
         this.level = 1;
+        this.inventory = inventory;
     }
 
     public void levelUp(){
         level++;
-        setCharisma((level*charisma)+5);
-        setHealth((level*health)+50);
-        setStrength((level*strength)+5);
+        setCharisma((level*5)+ inventory.getTotalCharisma());
+        setHealth((level*15)+50+inventory.getTotalHealth());
+        setStrength((level*5)+inventory.getTotalStrength());
     }
 
     public int getStrength() {
