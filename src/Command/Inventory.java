@@ -9,6 +9,10 @@ public class Inventory implements Command {
     private ArrayList<Item> items = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * Credit to my IT teacher for most of the method
+     * @return returns closing line when the desired action is exit
+     */
     @Override
     public String execute() {
         if (items.isEmpty()) {
@@ -47,9 +51,6 @@ public class Inventory implements Command {
         return false;
     }
 
-    public boolean removeItem(Item item) {
-        return items.remove(item);
-    }
 
     private void listItems() {
         System.out.println("Your Inventory:");

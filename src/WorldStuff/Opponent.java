@@ -68,4 +68,15 @@ public class Opponent {
     public void setCharismaThreshold(int charismaThreshold) {
         this.charismaThreshold = charismaThreshold;
     }
+
+    @Override
+    public String toString() {
+        return "Opponent{" +
+                "health=" + health +
+                ", strength=" + strength +
+                ", charismaThreshold=" + charismaThreshold +
+                ", level=" + level +
+                ", type=" + type +
+                '}';
+    }
 }

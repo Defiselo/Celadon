@@ -8,6 +8,6 @@ import WorldStuff.Text;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Text.loadIntro());
+        System.out.println(new Text().loadIntro());
     }
 }

@@ -17,6 +17,9 @@ public class Celadon {
         this.inventory = inventory;
     }
 
+    /**
+     * Method for leveling up the main character and increasing his stats
+     */
     public void levelUp(){
         level++;
         setCharisma((level*5)+ inventory.getTotalCharisma());

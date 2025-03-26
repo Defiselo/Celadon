@@ -10,13 +10,14 @@ public class Console {
     private HashMap<String, Command> commands = new HashMap<>();
     private Scanner sc = new Scanner(System.in);
     private Mappington map = new Mappington();
+    private Inventory inv = new Inventory();
 
    public void initialize(){
-       commands.put("go", new Go());
+       commands.put("go", new Go(inv));
        commands.put("help", new Help());
-       commands.put("inventory", new Inventory());
+       commands.put("inventory", inv);
        commands.put("quit", new Quit());
-       commands.put("investigate", new Investigate(new Inventory())); //TODO fix??
+       commands.put("investigate", new Investigate(inv));
    }
 
    public void useCommand(){

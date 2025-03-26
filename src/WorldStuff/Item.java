@@ -15,18 +15,22 @@ public class Item {
                 this.health = 0;
                 this.strength = delta;
                 this.charisma = 0;
+                break;
             case ARMOR:
                 this.health = delta;
                 this.strength = 0;
                 this.charisma = 0;
+                break;
             case PUZZLE:
                 this.health = 0;
                 this.strength = 0;
                 this.charisma = 0;
+                break;
             case JOKE:
                 this.health = 0;
                 this.strength = 0;
                 this.charisma = delta;
+                break;
         }
 
     }
