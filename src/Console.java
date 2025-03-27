@@ -1,4 +1,5 @@
 import Command.*;
+import WorldStuff.Celadon;
 import WorldStuff.Mappington;
 import WorldStuff.Text;
 
@@ -11,13 +12,14 @@ public class Console {
     private Scanner sc = new Scanner(System.in);
     private Mappington map = new Mappington();
     private Inventory inv = new Inventory();
+    private Celadon celadon = new Celadon(inv);
 
    public void initialize(){
-       commands.put("go", new Go(inv));
+       commands.put("go", new Go(map, celadon));
        commands.put("help", new Help());
        commands.put("inventory", inv);
        commands.put("quit", new Quit());
-       commands.put("investigate", new Investigate(inv));
+       commands.put("investigate", new Investigate(inv, map));
    }
 
    public void useCommand(){

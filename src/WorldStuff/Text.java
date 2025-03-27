@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Text {
-    static String stuff = "";
+    private static String stuff = "";
 
     public static String loadIntro(){
         try(BufferedReader br = new BufferedReader(new FileReader("intro.txt"))) {

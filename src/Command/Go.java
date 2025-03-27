@@ -9,12 +9,14 @@ import java.util.Scanner;
 
 public class Go implements Command {
     private Scanner sc = new Scanner(System.in);
-    private Mappington map = new Mappington();
+    private Mappington map;
     private Room currentRoom = new Room();
     private Inventory inventory;
+    private Celadon celadon;
 
-    public Go(Inventory inventory) {
-        this.inventory = inventory;
+    public Go(Mappington map, Celadon celadon) {
+        this.map = new Mappington();
+        this.celadon = celadon;
     }
 
     @Override
@@ -29,8 +31,11 @@ public class Go implements Command {
                     if (currentRoom.getDirections()[3] != -1) {
                         if (map.getMap().containsKey(currentRoom.getDirections()[3])) {
                             currentRoom = map.getMap().get(currentRoom.getDirections()[3]);
-                            System.out.println("Successfully moved up");
-                            break;
+                            if(currentRoom.getOpp()!=null){
+                                System.out.println("While trying to move up, you were intercepted by an enemy");
+                                FightOrFlight fight = new FightOrFlight(celadon, currentRoom.getOpp());
+                            }
+                            return "Successfully moved up";
                         }
                     } else {
                         return "There's no path that way";
@@ -39,8 +44,11 @@ public class Go implements Command {
                     if (currentRoom.getDirections()[1] != -1) {
                         if (map.getMap().containsKey(currentRoom.getDirections()[1])) {
                             currentRoom = map.getMap().get(currentRoom.getDirections()[1]);
-                            System.out.println("Successfully moved down");
-                            break;
+                            if(currentRoom.getOpp()!=null){
+                                System.out.println("While moving to down, an enemy suddenly attacked you");
+                                FightOrFlight fight = new FightOrFlight(celadon, currentRoom.getOpp());
+                            }
+                            return "Successfully moved down";
                         }
                     } else {
                         return "There's no path that way";
@@ -49,8 +57,12 @@ public class Go implements Command {
                     if (currentRoom.getDirections()[2] != -1) {
                         if (map.getMap().containsKey(currentRoom.getDirections()[2])) {
                             currentRoom = map.getMap().get(currentRoom.getDirections()[2]);
-                            System.out.println("Successfully moved to the left");
-                            break;
+                            if(currentRoom.getOpp()!=null){
+                                System.out.println("On your way to the left, a battle broke out between you and an enemy");
+                                FightOrFlight fight = new FightOrFlight(celadon, currentRoom.getOpp());
+                            }
+                            return "Successfully moved to the left";
+
                         }
                     } else {
                         return "There's no path that way";
@@ -59,8 +71,12 @@ public class Go implements Command {
                     if (currentRoom.getDirections()[0] != -1) {
                         if (map.getMap().containsKey(currentRoom.getDirections()[0])) {
                             currentRoom = map.getMap().get(currentRoom.getDirections()[0]);
-                            System.out.println( "Successfully moved to the right");
-                            break;
+                            if(currentRoom.getOpp()!=null){
+                                System.out.println("Moving right proved to be a bad idea, as you were assaulted by an oncoming enemy");
+                                FightOrFlight fight = new FightOrFlight(celadon, currentRoom.getOpp());
+                            }
+                            return "Successfully moved to the right";
+
                         }
                     } else {
                         return "There's no path that way";
@@ -68,9 +84,7 @@ public class Go implements Command {
                     default:
                     return "Ain't no direction like dat, homezawg";
             }
-            if(currentRoom.getOpp()!=null){
-                FightOrFlight fight = new FightOrFlight(new Celadon(inventory), currentRoom.getOpp());
-            }
+
         }
         return "";
     }

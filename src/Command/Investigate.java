@@ -40,7 +40,7 @@ public class Investigate implements Command {
     };
 
 
-    public Investigate(Inventory inventory) {
+    public Investigate(Inventory inventory, Mappington map) {
         this.inventory = inventory;
     }
 
