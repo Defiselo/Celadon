@@ -24,24 +24,25 @@ public class Investigate implements Command {
         "A mysterious figure stands before you, introducing himself as Plum and you start to feel some nostalgia. It's now or never."
     };
     private Item[] items = {
-        new Item("Old Sword", ItemType.WEAPON, 3),
+        new Item("Old Sword", ItemType.WEAPON, 6),
         new Item("Brother's Note", ItemType.PUZZLE, 0),
         new Item("Rusty Armor", ItemType.ARMOR, 5),
         null,
-        new Item("Sharp Sword", ItemType.WEAPON, 7),
-        new Item("Dank ahh meme lul", ItemType.JOKE, 10),
+        new Item("Sharp Sword", ItemType.WEAPON, 12),
+        new Item("Dank ahh meme lul", ItemType.JOKE, 20),
         new Item("Unidentified", ItemType.PUZZLE, 0),
         null,
-        new Item("",ItemType.WEAPON,24),
+        new Item("Weezer",ItemType.WEAPON,34),
         null,
         null,
-        new Item("Pristine Armor", ItemType.ARMOR, 35),
+        new Item("Pristine Armor", ItemType.ARMOR, 40),
         null
     };
 
 
     public Investigate(Inventory inventory, Mappington map) {
         this.inventory = inventory;
+        this.map = map;
     }
 
     @Override
@@ -51,9 +52,13 @@ public class Investigate implements Command {
 
 
         Item foundItem = items[map.getCurrentRoom().getID()];
-        if (foundItem!=null) {
-            inventory.addItem(foundItem);
-            return foundItem.getName() + "has been added to your inventory.";
+        if (foundItem!=null ) {
+            if (!inventory.getItems().contains(foundItem)) {
+                inventory.addItem(foundItem);
+                return foundItem.getName() + " has been added to your inventory.";
+            }else {
+                return foundItem.getName() + " is already in your inventory.";
+            }
         }
         return "";
     }

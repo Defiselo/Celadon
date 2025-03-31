@@ -9,7 +9,12 @@ public class Room {
     private int[] directions;
     private Opponent opp;
 
-
+    /**
+     * Constructor for opponentless rooms
+     * @param ID room ID
+     * @param name room Name
+     * @param directions directions in which you can go
+     */
     public Room(int ID, String name, String[] directions) {
         this.ID = ID;
         this.name = name;
@@ -19,6 +24,13 @@ public class Room {
         }
     }
 
+    /**
+     * Constructor for rooms with an opponent
+     * @param ID room ID
+     * @param name room Name
+     * @param directions directions in which you can go
+     * @param opp Opponent located in the room
+     */
     public Room(int ID, String name, String[] directions, Opponent opp) {
         this.ID = ID;
         this.name = name;
@@ -29,8 +41,6 @@ public class Room {
         this.opp = opp;
     }
 
-    public Room() {
-    }
 
     public int getID() {
         return ID;
@@ -50,11 +60,6 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "ID=" + ID +
-                ", name='" + name + '\'' +
-                ", directions=" + Arrays.toString(directions) +
-                ", opp=" + opp +
-                '}';
+        return name;
     }
 }

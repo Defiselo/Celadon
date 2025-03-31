@@ -9,7 +9,7 @@ public class Opponent {
     protected int level;
     protected boolean isDefeated = false;
     private Random rd = new Random();
-    private OpponentType type;
+    protected OpponentType type;
 
     public Opponent(int level, OpponentType type) {
         this.strength = level*3;

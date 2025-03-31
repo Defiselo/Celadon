@@ -11,6 +11,11 @@ public class Mappington {
     private int currentRoom = start;
     private HashMap<Integer, Room> map = new HashMap<>();
 
+    /**
+     * loads the rooms, their directions and opponents from a file
+     * @author partially my teacher and partially myself
+     * @return information about the success of loading
+     */
     public boolean loadMap(){
         try(BufferedReader br = new BufferedReader(new FileReader("rooms.txt"))){
             String line;
@@ -45,6 +50,22 @@ public class Mappington {
         } catch (IOException e) {
             return false;
         }
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public void setCurrentRoom(int currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
+    public void setMap(HashMap<Integer, Room> map) {
+        this.map = map;
     }
 
     public Room getCurrentRoom() {

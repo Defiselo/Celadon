@@ -4,7 +4,7 @@ public class Quit implements Command {
 
     @Override
     public String execute() {
-        return "GAME OVER!";
+        return "You decided to exit the game";
     }
 
     @Override

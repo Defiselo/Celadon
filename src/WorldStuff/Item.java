@@ -7,6 +7,13 @@ public class Item {
     private int charisma;
     private int health;
 
+    /**
+     * Creates item and gives it it's stats based on it's type
+     * @param name Name of the Item
+     * @param type The type of Item you wish to create
+     * @param delta The stat you are giving it (based on weapon type)
+     * @author myself
+     */
     public Item(String name,ItemType type, int delta) {
         this.name = name;
         this.type = type;
@@ -77,7 +84,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'';
+        return  name;
     }
 }

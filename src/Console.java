@@ -22,15 +22,19 @@ public class Console {
        commands.put("investigate", new Investigate(inv, map));
    }
 
-   public void useCommand(){
-       System.out.print(">>>");
-       String command = sc.nextLine();
-       command = command.trim();
-       command = command.toLowerCase();
-       if(commands.containsKey(command)){
-           System.out.println(">>> " + commands.get(command).execute());
-       }else{
-           System.out.println(">>> Unknown command");
+   public void useCommand() {
+       try {
+           String command = sc.nextLine();
+           command = command.trim();
+           command = command.toLowerCase();
+           if (commands.containsKey(command)) {
+               this.exit = commands.get(command).exit();
+               System.out.println(commands.get(command).execute());
+           } else {
+               System.out.println("Unknown command");
+           }
+       }catch (Exception e){
+           System.out.println("Hold up. Wait a minute. Something aint right");
        }
    }
     public void start(){
@@ -39,9 +43,9 @@ public class Console {
         String text = Text.loadIntro();
         System.out.println(text);
         try{
-            do {
+            while (!exit){
                 useCommand();
-            }while(!exit);
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
