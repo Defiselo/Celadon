@@ -62,15 +62,15 @@ public class Inventory implements Command {
 
     private void dropItem() {
         System.out.println("Enter the item name to drop:");
-        String itemName = sc.next();
+        String itemName = sc.nextLine();
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getName().equalsIgnoreCase(itemName)) {
                 System.out.println("You dropped " + items.get(i).getName() + "!");
                 items.remove(i);
                 return;
             }
+            System.out.println("Item not found!");
         }
-        System.out.println("Item not found!");
     }
 
     public int getTotalCharisma(){
@@ -96,5 +96,7 @@ public class Inventory implements Command {
         return total;
     }
 
-
+    public ArrayList<Item> getItems() {
+        return items;
+    }
 }

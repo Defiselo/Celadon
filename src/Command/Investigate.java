@@ -42,6 +42,7 @@ public class Investigate implements Command {
 
     public Investigate(Inventory inventory, Mappington map) {
         this.inventory = inventory;
+        this.map = map;
     }
 
     @Override
@@ -51,9 +52,13 @@ public class Investigate implements Command {
 
 
         Item foundItem = items[map.getCurrentRoom().getID()];
-        if (foundItem!=null) {
-            inventory.addItem(foundItem);
-            return foundItem.getName() + "has been added to your inventory.";
+        if (foundItem!=null ) {
+            if (!inventory.getItems().contains(foundItem)) {
+                inventory.addItem(foundItem);
+                return foundItem.getName() + " has been added to your inventory.";
+            }else {
+                return foundItem.getName() + " is already in your inventory.";
+            }
         }
         return "";
     }
