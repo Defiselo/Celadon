@@ -43,6 +43,11 @@ public class Inventory implements Command {
         return false;
     }
 
+    /**
+     * Adds item to inventory
+     * @param item The item you wish to add
+     * @return status of adding to inventory
+     */
     public boolean addItem(Item item) {
         if (item != null) {
             items.add(item);
